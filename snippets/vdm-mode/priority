@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: priority
+# key: pr
+# condition: (vdm-mode-util-is-rt)
+# --
+${1:cpuName}.setPriority(${2:op},${3:priority});$0

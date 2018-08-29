@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: getter
+# expand-env: ((yas-indent-line 'fixed))
+# key: g
+# --
+pure `(when (vdm-mode-util-is-pp-or-rt) (insert "public"))` get${1:Field}: () ==> ${2:fieldType}
+get$1() == return ${3:field};$0

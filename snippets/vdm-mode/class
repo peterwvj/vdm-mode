@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: class
+# expand-env: ((yas-indent-line 'fixed))
+# key: cls
+# condition: (vdm-mode-util-is-pp-or-rt)
+# --
+class ${1:`(file-name-sans-extension (buffer-name))`}
+
+$0
+
+end $1

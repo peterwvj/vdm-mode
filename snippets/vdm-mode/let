@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: let
+# expand-env: ((yas-indent-line 'fixed))
+# key: let
+# --
+let ${1:pattern} = ${2:exp}
+in
+  $0

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: state definition (simple)
+# expand-env: ((yas-indent-line 'fixed))
+# key: sd
+# condition: (vdm-mode-util-is-sl)
+# --
+state ${1:Name} of
+  ${2:id} : ${3:type1}
+inv mk_$1($2) == ${5:invPred}
+init ${6:pat2} == $6 = mk_$1(${7:args})
+end

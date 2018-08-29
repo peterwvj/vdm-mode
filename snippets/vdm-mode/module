@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: module
+# expand-env: ((yas-indent-line 'fixed))
+# key: mdl
+# condition: (vdm-mode-util-is-sl)
+# --
+module ${1:`(file-name-sans-extension (buffer-name))`}
+
+definitions
+$0
+
+end $1

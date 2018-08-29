@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: imports all
+# key: ia
+# condition: (vdm-mode-util-is-sl)
+# --
+imports from ${1:Module} all$0

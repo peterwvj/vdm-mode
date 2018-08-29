@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: sporadic thread
+# key: sp
+# condition: (vdm-mode-util-is-rt)
+# --
+thread
+  sporadic(${1:delay}, ${2:bound}, ${3:offset}) (${5:op});$0

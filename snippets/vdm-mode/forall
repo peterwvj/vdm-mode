@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: forall quantifier
+# key: fa
+# --
+forall ${1:x} in set ${2:s} & ${3:pred}

@@ -1,0 +1,90 @@
+#+STARTUP: showall
+
+#+TITLE: vdm-mode.el
+
+Emacs package for writing VDM specifications using VDM-SL, VDM++ and
+VDM-RT.
+
+* Features
+
+~vdm-mode~ currently supports the following features:
+
+- Syntax highlighting and editing
+- Replacement of ASCII syntax (e.g. ~lambda~) with more aesthetically
+  looking symbols (e.g. ~λ~) using ~prettify-symbols-mode~
+- On the fly syntax checking using [[https://github.com/flycheck/flycheck][Flycheck]]
+  - Integration with [[https://github.com/nickbattle/vdmj][VDMJ]] and [[https://github.com/overturetool/overture][Overture]]
+- VDM [[https://github.com/joaotavora/yasnippet][YASnippets]]
+
+* Installation and configuration
+
+I'm currently working on making this package available via [[https://github.com/melpa/melpa][MELPA]].
+Until that's done, you must install ~vdm-mode~ by downloading the
+files from this repository and adding the following to your Emacs
+configuration:
+
+#+BEGIN_SRC elisp
+(add-to-list 'load-path "/folder/where/vdm-mode/is/")
+(require 'vdm-mode)
+(setq vdm-mode-vdm-tool-jar-path "/path/to/vdm-tool-jar")
+(vdm-mode-setup)
+#+END_SRC
+
+* Usage
+
+** Recognised file extensions
+
+The following file extensions are recognised as VDM files:
+
+- VDM-SL: ~.vdmsl~ and ~.vsl~
+- VDM++: ~.vdmpp~ and ~.vpp~
+- VDM-RT: ~.vdmrt~ and ~.vrt~
+
+** Syntax checking
+
+To enable syntax checking of VDM files
+~vdm-mode-flycheck-tool-jar-path~ must contain a path to either a [[https://github.com/nickbattle/vdmj][VDMJ]]
+or [[https://github.com/overturetool/overture][Overture]] jar file. The syntax checker integration is created using
+[[https://github.com/flycheck/flycheck][Flycheck]].
+
+** VDM YASnippets
+
+~vdm-mode~ offers several VDM [[https://github.com/joaotavora/yasnippet][YASnippets]] to improve the editing
+experience. Calling ~yas-insert-snippet~ is a useful way to obtain an
+overview of the different snippets currently offered by ~vdm-mode~.
+
+** Multi-file models
+
+By default, ~vdm-mode~ only performs syntax checking of the current
+buffer. However, for large models, ~vdm-mode~ uses a special file
+named ~.vdm-project~ to group files into VDM projects or multi-file
+models. As an example, consider the VDM project structure below, which
+lists three VDM files.
+
+#+begin_src ditaa
+  project-root-folder   
+  |
+  +-- .vdm-project
+  +-- A.vdmsl
+  +-- B.vdmsl
+  +-- sub-folder
+      +-- C.vdmsl
+#+end_src
+
+Every time syntax checking is triggered ~vdm-mode~ locates the root of
+the project (if it exists) and recursively finds all VDM files
+associated with that project.  These files are then passed as
+arguments to the underlying VDM tool, which performs the syntax
+check. A VDM project may be created using the
+~vdm-mode-create-project~ function.
+
+* Planned features
+
+Below is a list of features that I'm considering adding to ~vdm-mode~.
+
+- Interpreter integration (model execution)
+- VDM libraries import
+- Jump to definition
+
+If you have any ideas for how to improve ~vdm-mode~ feel free to
+create an issue or submit a pull request.

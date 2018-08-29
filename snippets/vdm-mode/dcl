@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: dcl block
+# expand-env: ((yas-indent-line 'fixed))
+# key: db
+# --
+(
+  dcl ${1:id} : ${2:type} := ${3:exp};
+  $0
+);

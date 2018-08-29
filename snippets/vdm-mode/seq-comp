@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: seq comprehension
+# key: seqc
+# --
+[ ${2:exp} | ${1:x} in ${3:set} ${4:s} & ${5:pred} ]

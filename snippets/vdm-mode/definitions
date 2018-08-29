@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: definitions section
+# key: d
+# condition: (vdm-mode-util-is-sl)
+# --
+definitions
+$0

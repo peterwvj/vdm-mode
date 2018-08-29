@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: instance variable
+# key: iv
+# condition: (vdm-mode-util-is-pp-or-rt)
+# --
+${1:$$(yas-choose-value '("private" "protected" "public"))} ${2:name} : ${3:type} := ${4:exp};$0

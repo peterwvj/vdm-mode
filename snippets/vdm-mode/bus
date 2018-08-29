@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: bus
+# key: bus
+# condition: (vdm-mode-util-is-rt)
+# --
+${1:name} : BUS := new BUS (${2:$$(yas-choose-value '("<FP>" "<CSMACD>"))}, ${3:frequency}, {${4:cpu1,cpu2,...}});$0

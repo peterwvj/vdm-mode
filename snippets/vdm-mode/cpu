@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: cpu
+# key: cpu
+# condition: (vdm-mode-util-is-rt)
+# --
+${1:name} : CPU := new CPU (${2:$$(yas-choose-value '("<FP>" "<FCFS>"))}, ${3:frequency});$0

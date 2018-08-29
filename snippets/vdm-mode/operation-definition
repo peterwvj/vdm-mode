@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: operation definition
+# expand-env: ((yas-indent-line 'fixed))
+# key: op
+# --
+${1:op} : ${2:argTypes} ==> ${3:resType}
+$1 (${4:argNames}) == $0;

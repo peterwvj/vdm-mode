@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: map comprehension
+# key: mapc
+# --
+{ ${2:first} |-> ${3:second} | ${1:x} in set ${4:s} & ${5:pred} }

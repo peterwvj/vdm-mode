@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: exists1 quantifier
+# key: e1
+# --
+exists1 ${1:x} in set ${2:s} & ${3:pred}

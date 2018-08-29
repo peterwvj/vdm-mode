@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: function definition
+# expand-env: ((yas-indent-line 'fixed))
+# key: fun
+# --
+${1:fun} : ${2:argTypes} -> ${3:resType}
+$1 (${4:argNames}) == $0;

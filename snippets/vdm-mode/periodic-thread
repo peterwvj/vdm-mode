@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: periodic thread
+# key: pe
+# condition: (vdm-mode-util-is-rt)
+# --
+thread
+  periodic(${1:period}, ${2:jitter}, ${3:delay}, ${4:offset}) (${5:op});$0

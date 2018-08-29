@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: instance variables section
+# key: i
+# condition: (vdm-mode-util-is-pp-or-rt)
+# --
+instance variables
+$0
