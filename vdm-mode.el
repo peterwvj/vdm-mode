@@ -38,13 +38,8 @@
 
 (require 'vdm-mode-util)
 
-(when (require 'vdm-snippets nil 'noerror)
-  (eval-after-load 'yasnippet
-    '(require 'vdm-snippets)))
-
-(when (require 'flycheck-vdm nil 'noerror)
-  (eval-after-load 'flycheck
-    '(require 'flycheck-vdm)))
+(require 'vdm-snippets nil 'noerror)
+(require 'flycheck-vdm nil 'noerror)
 
 ;; Inconvenient to treat ` as a pair in vdm-mode
 (when (bound-and-true-p smartparens-mode)
