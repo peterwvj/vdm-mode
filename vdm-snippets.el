@@ -1,11 +1,11 @@
-;;; vdm-mode-snippets.el --- YASnippets for VDM mode -*- lexical-binding: t; -*-
+;;; vdm-snippets.el --- YASnippets for VDM mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018 Peter W. V. Tran-Jørgensen
 ;; Author: Peter W. V. Tran-Jørgensen <peter.w.v.jorgensen@gmail.com>
 ;; Maintainer: Peter W. V. Tran-Jørgensen <peter.w.v.jorgensen@gmail.com>
 ;; URL: https://github.com/peterwvj/vdm-mode
 ;; Created: 29th August 2018
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; Keywords: languages
 ;; Package-Requires: ((emacs "24") (yasnippet "0.13.0"))
 
@@ -30,23 +30,23 @@
 
 (require 'yasnippet)
 
-(defvar vdm-mode-snippets-root
+(defvar vdm-snippets-root
   (file-name-directory (or load-file-name (buffer-file-name)))
   "Root directory of VDM snippets.")
 
 ;;;###autoload
-(defun vdm-mode-snippets-initialize ()
+(defun vdm-snippets-initialize ()
   "Initialize VDM snippets such that YASnippet can see them."
-  (let ((dir (expand-file-name "snippets" vdm-mode-snippets-root)))
+  (let ((dir (expand-file-name "snippets" vdm-snippets-root)))
     (when (boundp 'yas-snippet-dirs)
       (add-to-list 'yas-snippet-dirs dir t))
     (yas-load-directory dir)))
 
 ;;;###autoload
 (eval-after-load 'yasnippet
-  '(vdm-mode-snippets-initialize))
+  '(vdm-snippets-initialize))
 
 
-(provide 'vdm-mode-snippets)
-;;; vdm-mode-snippets.el ends here
+(provide 'vdm-snippets)
+;;; vdm-snippets.el ends here
 

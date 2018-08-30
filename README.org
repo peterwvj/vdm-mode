@@ -42,10 +42,9 @@ The following file extensions are recognised as VDM files:
 
 ** Syntax checking
 
-To enable syntax checking of VDM files
-~vdm-mode-flycheck-tool-jar-path~ must contain a path to either a [[https://github.com/nickbattle/vdmj][VDMJ]]
-or [[https://github.com/overturetool/overture][Overture]] jar file. The syntax checker integration is created using
-[[https://github.com/flycheck/flycheck][Flycheck]].
+To enable syntax checking of VDM files ~flycheck-vdm-tool-jar-path~
+must contain a path to either a [[https://github.com/nickbattle/vdmj][VDMJ]] or [[https://github.com/overturetool/overture][Overture]] jar file. The syntax
+checker integration is created using [[https://github.com/flycheck/flycheck][Flycheck]].
 
 ** VDM YASnippets
 

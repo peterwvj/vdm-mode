@@ -1,11 +1,11 @@
-;;; vdm-mode-flycheck.el --- Syntax checking for vdm-mode -*- lexical-binding: t; -*-
+;;; flycheck-vdm.el --- Syntax checking for vdm-mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018 Peter W. V. Tran-Jørgensen
 ;; Author: Peter W. V. Tran-Jørgensen <peter.w.v.jorgensen@gmail.com>
 ;; Maintainer: Peter W. V. Tran-Jørgensen <peter.w.v.jorgensen@gmail.com>
 ;; URL: https://github.com/peterwvj/vdm-mode
 ;; Created: 29th August 2018
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; Keywords: languages
 ;; Package-Requires: ((emacs "24") (flycheck "32-cvs"))
 
@@ -31,13 +31,13 @@
 (require 'vdm-mode-util)
 (require 'flycheck)
 
-(defun vdm-mode-flycheck-get-dialect-arg ()
+(defun flycheck-vdm-get-dialect-arg ()
   "Get the dialect option for Overture/VDMJ based on the extension of the current file, nil if the file is not a VDM file."
   (cond ((vdm-mode-util-is-sl) "-vdmsl")
         ((vdm-mode-util-is-pp) "-vdmpp")
         ((vdm-mode-util-is-rt) "-vdmrt")))
 
-(flycheck-def-option-var vdm-mode-flycheck-tool-jar-path nil vdm
+(flycheck-def-option-var flycheck-vdm-tool-jar-path nil vdm
   "A path to the VDMJ or Overture jar file."
   :type 'string
   :safe #'stringp)
@@ -45,8 +45,8 @@
 (flycheck-define-checker vdm
     "A syntax checker for VDM."
   :command ("java"
-            (option "-jar" vdm-mode-flycheck-tool-jar-path)
-            (eval (vdm-mode-flycheck-get-dialect-arg))
+            (option "-jar" flycheck-vdm-tool-jar-path)
+            (eval (flycheck-vdm-get-dialect-arg))
             source
             ;; Additional sources to type check
             (eval (vdm-mode-util-find-vdm-files)))
@@ -68,12 +68,12 @@
      ;; The buffer must be saved
      ;; (flycheck-buffer-saved-p)
      ;; The VDM tool jar must exist
-     (file-exists-p vdm-mode-flycheck-tool-jar-path)
+     (file-exists-p flycheck-vdm-tool-jar-path)
      ;; The buffer we're checking must be associated with a file
      (buffer-file-name))))
 
 (add-to-list 'flycheck-checkers 'vdm)
 
-(provide 'vdm-mode-flycheck)
+(provide 'flycheck-vdm)
 
-;;; vdm-mode-flycheck.el ends here
+;;; flycheck-vdm.el ends here

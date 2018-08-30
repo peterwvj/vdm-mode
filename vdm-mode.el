@@ -5,9 +5,9 @@
 ;; Maintainer: Peter W. V. Tran-Jørgensen <peter.w.v.jorgensen@gmail.com>
 ;; URL: https://github.com/peterwvj/vdm-mode
 ;; Created: 29th August 2018
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; Keywords: languages
-;; Package-Requires: ((emacs "25") (flycheck "32-cvs") (yasnippet "0.13.0"))
+;; Package-Requires: ((emacs "25"))
 
 ;; This file is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -37,14 +37,14 @@
 ;;; Code:
 
 (require 'vdm-mode-util)
-(require 'yasnippet)
-(require 'flycheck)
 
-(eval-after-load 'yasnippet
-  '(require 'vdm-mode-snippets))
+(when (require 'vdm-snippets nil 'noerror)
+  (eval-after-load 'yasnippet
+    '(require 'vdm-snippets)))
 
-(eval-after-load 'flycheck
-  '(require 'vdm-mode-flycheck))
+(when (require 'flycheck-vdm nil 'noerror)
+  (eval-after-load 'flycheck
+    '(require 'flycheck-vdm)))
 
 ;; Inconvenient to treat ` as a pair in vdm-mode
 (when (bound-and-true-p smartparens-mode)
@@ -148,8 +148,10 @@
   (add-hook 'vdm-mode-hook
 	          (lambda ()
 	            (progn
-		            (yas-minor-mode 1)
-		            (flycheck-mode 1)))))
+                (when (boundp 'yas-minor-mode)
+                  (yas-minor-mode 1))
+		            (when (boundp 'flycheck-mode)
+                  (flycheck-mode 1))))))
 
 (defconst vdm-mode-syntax-table
   (let ((table (make-syntax-table)))
