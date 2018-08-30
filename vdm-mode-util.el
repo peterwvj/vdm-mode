@@ -73,18 +73,16 @@
 (defun vdm-mode-util-find-vdm-files ()
   "Return all VDM files associated with the current project."
   (let ((file-ext (vdm-mode-util-file-name-extension)))
-    (if (vdm-mode-util-is-vdm)
+    (when (vdm-mode-util-is-vdm)
         (let ((project-root (locate-dominating-file default-directory vdm-mode-util-project-file)))
-          (if project-root
+          (when project-root
               (let ((vdm-file-regex (concat "\\" file-ext "$")))
                 (let ((vdm-files (directory-files-recursively project-root vdm-file-regex)))
                   (seq-filter (lambda (file)
                                 (and
                                  (not (string-match-p "/\\.#.+$" file))
                                  (not (string= (buffer-file-name) file))))
-                              vdm-files)))
-            '()))
-      '())))
+                              vdm-files))))))))
 
 (provide 'vdm-mode-util)
 
