@@ -26,7 +26,7 @@ configuration:
 #+BEGIN_SRC elisp
 (add-to-list 'load-path "/folder/where/vdm-mode/is/")
 (require 'vdm-mode)
-(setq vdm-mode-vdm-tool-jar-path "/path/to/vdm-tool-jar")
+(setq flycheck-vdm-tool-jar-path "/path/to/vdm-tool-jar")
 (vdm-mode-setup)
 #+END_SRC
 
