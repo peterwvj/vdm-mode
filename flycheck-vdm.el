@@ -5,9 +5,9 @@
 ;; Maintainer: Peter W. V. Tran-Jørgensen <peter.w.v.jorgensen@gmail.com>
 ;; URL: https://github.com/peterwvj/vdm-mode
 ;; Created: 29th August 2018
-;; Version: 0.0.2
+;; Version: 0.0.3
 ;; Keywords: languages
-;; Package-Requires: ((emacs "24") (flycheck "32-cvs"))
+;; Package-Requires: ((emacs "24") (flycheck "32-cvs") (vdm-mode "0.0.3"))
 
 ;; This file is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
