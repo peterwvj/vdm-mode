@@ -18,10 +18,33 @@ VDM-RT.
 
 * Installation and configuration
 
-I'm currently working on making this package available via [[https://github.com/melpa/melpa][MELPA]].
-Until that's done, you must install ~vdm-mode~ by downloading the
-files from this repository and adding the following to your Emacs
-configuration:
+The features described above are packaged separately as ~vdm-mode~,
+~vdm-snippets~ and ~flycheck-vdm~. The last two packages are optional
+but necessary to use the VDM snippets and enable syntax checking.
+
+** Installation using MELPA (recommended)
+
+All three packages are available via [[https://melpa.org][MELPA]] and can be installed by
+executing the following commands:
+
+#+BEGIN_SRC elisp
+package-install RET vdm-mode RET
+package-install RET flycheck-vdm RET
+package-install RET vdm-snippets RET
+#+END_SRC
+
+Finally, add the following to your Emacs configuration:
+
+#+BEGIN_SRC elisp
+(require 'vdm-mode)
+(setq flycheck-vdm-tool-jar-path "/path/to/vdm-tool-jar")
+(vdm-mode-setup)
+#+END_SRC
+
+** Manual installation
+
+Download the files from this repository and adding the following to
+your Emacs configuration:
 
 #+BEGIN_SRC elisp
 (add-to-list 'load-path "/folder/where/vdm-mode/is/")
