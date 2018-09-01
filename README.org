@@ -50,8 +50,8 @@ Finally, add the following to your Emacs configuration:
 
 ** Manual installation
 
-Download the files from this repository and adding the following to
-your Emacs configuration:
+Download the files from this repository and add the following to your
+Emacs configuration:
 
 #+BEGIN_SRC elisp
 (add-to-list 'load-path "/folder/where/vdm-mode/is/")
