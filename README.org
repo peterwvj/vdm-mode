@@ -2,6 +2,13 @@
 
 #+TITLE: vdm-mode.el
 
+
+
+[[https://melpa.org/#/vdm-mode][file:https://melpa.org/packages/vdm-mode-badge.svg]]
+[[http://melpa-stable.milkbox.net/#/vdm-mode][file:http://melpa-stable.milkbox.net/packages/vdm-mode-badge.svg]]
+[[http://www.gnu.org/licenses/gpl-3.0.html][http://img.shields.io/:license-gpl3-blue.svg?style=flat-square]]
+
+
 Emacs package for writing VDM specifications using VDM-SL, VDM++ and
 VDM-RT.
 
