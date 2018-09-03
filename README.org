@@ -12,6 +12,8 @@
 Emacs package for writing VDM specifications using VDM-SL, VDM++ and
 VDM-RT.
 
+[[file:gifs/demo.gif]]
+
 * Features
 
 ~vdm-mode~ currently supports the following features:
