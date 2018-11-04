@@ -84,9 +84,13 @@
             "subclass" "sync" "thread" "threadid" "variables"))
   "All VDM-PP keywords.")
 
+
+;; The 'not' keyword is used for negation but also appear in the 'is
+;; not yet specified' construct. Therefore it will not be prettyfied
+;; using ("not" . ?¬).
 (defconst vdm-mode-prettify-symbols
   '(("nat" . ?ℕ) ("int" . ?ℤ) ("rat" . ?ℚ) ("real" . ?ℝ) ("bool" . ?𝔹)
-   ("&" . ?⋅) ("and" . ?∧) ("or" . ?∨) ("=>" . ?⇒) ("not" . ?¬) ("<=>" . ?≡)
+   ("&" . ?⋅) ("and" . ?∧) ("or" . ?∨) ("=>" . ?⇒) ("<=>" . ?≡)
    ("==" . ?≜) ("in set" . ?∈) ("not in set" . ?∉) ("<>" . ?≠) ("<=" . ?≤)
    (">=" . ?≥) ("|->" . ?↦) ("div" . ?÷) ("subset" . ?⊆) ("undefined" . ?⊢)
    ("->" . ?⭢) ("inter" . ?∩) ("union" . ?∪) ("*" . ?×) ("exists" . ?∃)
