@@ -172,6 +172,9 @@
 
     ;; \n is a comment ender (comment sequence b)
     (modify-syntax-entry ?\n "> b" table)
+    
+    ;; _ is a word constituent
+    (modify-syntax-entry ?_ "w" table)
 
     table))
 
