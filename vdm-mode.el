@@ -190,6 +190,4 @@
 
 (provide 'vdm-mode)
 
-(provide 'vdm-mode)
-
 ;;; vdm-mode.el ends here
