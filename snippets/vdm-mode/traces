@@ -2,5 +2,4 @@
 # name: traces section
 # key: tr
 # --
-traces
-$0
+traces$0

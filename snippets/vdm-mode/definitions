@@ -3,5 +3,4 @@
 # key: d
 # condition: (vdm-mode-util-is-sl)
 # --
-definitions
-$0
+definitions$0
