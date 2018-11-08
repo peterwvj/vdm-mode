@@ -144,6 +144,7 @@
 
 (defun vdm-mode-setup ()
   "Enable YASnippet and Flycheck when 'vdm-mode' is loaded."
+  (interactive)
   (add-hook 'vdm-mode-hook
 	          (lambda ()
 	            (progn
