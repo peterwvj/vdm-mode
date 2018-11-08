@@ -31,12 +31,6 @@
 (require 'vdm-mode-util)
 (require 'flycheck)
 
-(defun flycheck-vdm-get-dialect-arg ()
-  "Get the dialect option for Overture/VDMJ based on the extension of the current file, nil if the file is not a VDM file."
-  (cond ((vdm-mode-util-is-sl) "-vdmsl")
-        ((vdm-mode-util-is-pp) "-vdmpp")
-        ((vdm-mode-util-is-rt) "-vdmrt")))
-
 (flycheck-def-option-var flycheck-vdm-tool-jar-path nil vdm
   "A path to the VDMJ or Overture jar file."
   :type 'string
@@ -46,10 +40,10 @@
     "A syntax checker for VDM."
   :command ("java"
             (option "-jar" flycheck-vdm-tool-jar-path)
-            (eval (flycheck-vdm-get-dialect-arg))
+            (eval (vdm-mode-util-get-dialect-arg))
             source
             ;; Additional sources to type check
-            (eval (vdm-mode-util-find-vdm-files)))
+            (eval (vdm-mode-util-find-vdm-files t)))
   :error-patterns
   (;; Error 2013: Expected 'operations', 'state', 'functions', 'types' or 'values' in 'A.vdmsl' at line 1:1
    (error line-start "Error" (message) " in '" (file-name) "' at line " line ":" column line-end)

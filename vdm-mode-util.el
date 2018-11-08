@@ -70,19 +70,28 @@
       (vdm-mode-util-is-pp)
       (vdm-mode-util-is-rt)))
 
-(defun vdm-mode-util-find-vdm-files ()
-  "Return all VDM files associated with the current project."
+(defun vdm-mode-util-get-dialect-arg ()
+  "Get the dialect option for Overture/VDMJ based on the extension of the current file, nil if the file is not a VDM file."
+  (cond ((vdm-mode-util-is-sl) "-vdmsl")
+        ((vdm-mode-util-is-pp) "-vdmpp")
+        ((vdm-mode-util-is-rt) "-vdmrt")))
+
+(defun vdm-mode-util-find-vdm-files (&optional exclude-current)
+  "Return VDM files associated with the current project.
+EXCLUDE-CURRENT if not nil exclude the file associated with the current buffer - otherwise include it."
   (let ((file-ext (vdm-mode-util-file-name-extension)))
     (when (vdm-mode-util-is-vdm)
-        (let ((project-root (locate-dominating-file default-directory vdm-mode-util-project-file)))
-          (when project-root
-              (let ((vdm-file-regex (concat "\\" file-ext "$")))
-                (let ((vdm-files (directory-files-recursively project-root vdm-file-regex)))
-                  (seq-filter (lambda (file)
-                                (and
-                                 (not (string-match-p "/\\.#.+$" file))
-                                 (not (string= (buffer-file-name) file))))
-                              vdm-files))))))))
+      (let ((project-root (locate-dominating-file default-directory vdm-mode-util-project-file)))
+        (if project-root
+            (let ((vdm-file-regex (concat "\\" file-ext "$")))
+              (let ((vdm-files (directory-files-recursively project-root vdm-file-regex)))
+                (seq-filter (lambda (file)
+                              (and
+                               (not (string-match-p "/\\.#.+$" file))
+                               (or (not exclude-current) (not (string= (buffer-file-name) file)))))
+                            vdm-files)))
+          (when (not exclude-current)
+            (list buffer-file-name)))))))
 
 (provide 'vdm-mode-util)
 
