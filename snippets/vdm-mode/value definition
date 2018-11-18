@@ -2,4 +2,4 @@
 # name: value definition
 # key: val
 # --
-${1:$$(yas-choose-value '("private" "protected" "public"))} ${2:pattern} : ${3:type} = ${4:exp};$0
+${1:pattern} : ${2:type} = ${3:exp};$0
