@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: public access modifier
+# key: pl
+# condition: (vdm-mode-util-is-pp-or-rt)
+# --
+public$0

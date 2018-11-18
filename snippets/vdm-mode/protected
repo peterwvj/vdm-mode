@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: protected access modifier
+# key: pt
+# condition: (vdm-mode-util-is-pp-or-rt)
+# --
+protected$0
