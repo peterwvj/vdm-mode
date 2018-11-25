@@ -75,10 +75,10 @@ using ~vdm-comint-command~ (for example, if you do not wish to use
 flycheck-vdm). By default ~vdm-comint-command~ is preferred over
 ~flycheck-vdm-tool-jar-path~ when the former is set (i.e. not nil).
 
-By default the [[https://github.com/Fuco1/smartparens][smartparens]
-package treats ~`~ as a pair, which is inconvenient in ~vdm-mode~ and
-~vdm-comint-mode~. If you are using this package and want to prevent
-this behaviour then add the following to your configuration:
+By default the [[https://github.com/Fuco1/smartparens][smartparens]] package treats ~`~ as a pair, which is
+inconvenient in ~vdm-mode~ and ~vdm-comint-mode~. If you are using
+this package and want to prevent this behaviour then add the following
+to your configuration:
 
 #+BEGIN_SRC elisp
 ;; Inconvenient to treat ` as a pair in vdm-mode and vdm-comint-mode
