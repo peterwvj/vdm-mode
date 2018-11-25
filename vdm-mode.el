@@ -41,10 +41,6 @@
 (require 'vdm-snippets nil 'noerror)
 (require 'flycheck-vdm nil 'noerror)
 
-;; Inconvenient to treat ` as a pair in vdm-mode
-(eval-after-load 'smartparens
-  '(sp-local-pair #'vdm-mode "`" nil :actions nil))
-
 ;;;###autoload
 (let* ((vdm-files '(".vdmsl" ".vsl" ".vdmpp" ".vpp" ".vdmrt" ".vrt"))
        (vdm-regexp (concat (regexp-opt vdm-files t) "\\'")))

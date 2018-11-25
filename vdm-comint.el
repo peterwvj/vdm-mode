@@ -34,10 +34,6 @@
 (require 'vdm-mode-util)
 (require 'comint)
 
-;; Inconvenient to treat ` as a pair in vdm-comint
-(eval-after-load 'smartparens
-  '(sp-local-pair #'vdm-comint-mode "`" nil :actions nil))
-
 (defgroup vdm-comint nil
   "Run a VDM interpreter in a buffer."
   :group 'vdm-comint)
