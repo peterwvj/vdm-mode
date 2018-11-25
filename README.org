@@ -36,17 +36,16 @@ syntax checking and using the REPL, respectively.
 
 *** Installation using MELPA (recommended) 
 
-~vdm-mode~, ~flycheck-vdm~ and ~vdm-snippets~ are available via [[https://melpa.org][MELPA]]
-and can be installed by executing the following commands:
+~vdm-mode~, ~flycheck-vdm~, ~vdm-snippets~ and ~vdm-comint~ are
+available via [[https://melpa.org][MELPA]] and can be installed by executing the following
+commands:
 
 #+BEGIN_SRC elisp
 package-install RET vdm-mode RET
 package-install RET flycheck-vdm RET
 package-install RET vdm-snippets RET
+package-install RET vdm-comint RET
 #+END_SRC
-
-*NOTE*: ~vdm-comint~ has been submitted to MELPA but is currently in
-review. This package must therefore be manually installed for now.
 
 *** Manual installation
 
