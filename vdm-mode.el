@@ -192,9 +192,8 @@
   (set (make-local-variable 'comment-start) "--")
 
   (when (version<= "24.4" emacs-version)
-    (progn
       (set (make-local-variable 'prettify-symbols-alist) vdm-mode-prettify-symbols)
-      (prettify-symbols-mode))))
+      (prettify-symbols-mode)))
 
 (provide 'vdm-mode)
 

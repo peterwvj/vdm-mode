@@ -158,9 +158,8 @@ To load all VDM files associated with the current project use
                                                     )))
 
   (when (version<= "24.4" emacs-version)
-    (progn
-      (set (make-local-variable 'prettify-symbols-alist) vdm-mode-prettify-symbols)
-      (prettify-symbols-mode)))
+    (set (make-local-variable 'prettify-symbols-alist) vdm-mode-prettify-symbols)
+    (prettify-symbols-mode))
 
   ;; No echo
   (setq comint-process-echoes t)
