@@ -92,7 +92,7 @@
    ("->" . ?⭢) ("inter" . ?∩) ("union" . ?∪) ("*" . ?×) ("exists" . ?∃)
    ("forall" . ?∀) ("lambda" . ?λ) ("++" . ?†) ("<:" . ?◁) (":>" . ?▷)
    ("<-:" . ?⩤) (":->" . ?⩥) ("psubset" . ?⊂) ("^" . ?↷) ("dinter" . ?⋂)
-   ("dunion" . ?⋃) ("power" . ?𝓕))
+   ("dunion" . ?⋃) ("power" . ?𝓕) ("mu" . ?μ))
   "VDM symbol prettifications.")
 
 (defconst vdm-mode-vdmrt-keywords
