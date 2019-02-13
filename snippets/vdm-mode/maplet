@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: maplet
+# key: ml
+# --
+{${1:key} |-> ${3:value}}$0
