@@ -91,7 +91,8 @@
    (">=" . ?≥) ("|->" . ?↦) ("div" . ?÷) ("subset" . ?⊆) ("undefined" . ?⊢)
    ("->" . ?⭢) ("inter" . ?∩) ("union" . ?∪) ("*" . ?×) ("exists" . ?∃)
    ("forall" . ?∀) ("lambda" . ?λ) ("++" . ?†) ("<:" . ?◁) (":>" . ?▷)
-   ("<-:" . ?⩤) (":->" . ?⩥) ("psubset" . ?⊂) ("^" . ?↷) ("dinter" . ?⋂))
+   ("<-:" . ?⩤) (":->" . ?⩥) ("psubset" . ?⊂) ("^" . ?↷) ("dinter" . ?⋂)
+   ("dunion" . ?⋃))
   "VDM symbol prettifications.")
 
 (defconst vdm-mode-vdmrt-keywords
