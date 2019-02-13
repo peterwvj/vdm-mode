@@ -90,7 +90,7 @@
    ("==" . ?≜) ("in set" . ?∈) ("not in set" . ?∉) ("<>" . ?≠) ("<=" . ?≤)
    (">=" . ?≥) ("|->" . ?↦) ("div" . ?÷) ("subset" . ?⊆) ("undefined" . ?⊢)
    ("->" . ?⭢) ("inter" . ?∩) ("union" . ?∪) ("*" . ?×) ("exists" . ?∃)
-   ("forall" . ?∀) ("lambda" . ?λ) ("++" . ?†) ("<:" . ?◁))
+   ("forall" . ?∀) ("lambda" . ?λ) ("++" . ?†) ("<:" . ?◁) (":>" . ?▷))
   "VDM symbol prettifications.")
 
 (defconst vdm-mode-vdmrt-keywords
