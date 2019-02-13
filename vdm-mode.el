@@ -99,9 +99,6 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
                  (push char composition)
                  (push '(Br . Bl) composition)))))
 
-;; The 'not' keyword is used for negation but also appears in the 'is
-;; not yet specified' construct. Therefore it will not be prettyfied
-;; using ("not" . ?¬).
 (defconst vdm-mode-prettify-symbols
   `(("nat" . ?ℕ) ("int" . ?ℤ) ("rat" . ?ℚ) ("real" . ?ℝ) ("bool" . ?𝔹)
    ("&" . ?⋅) ("and" . ?∧) ("or" . ?∨) ("=>" . ?⇒) ("<=>" . ?⇔)
@@ -110,7 +107,9 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
    ("->" . ?⭢) ("inter" . ?∩) ("union" . ?∪) ("*" . ?×) ("exists" . ?∃)
    ("forall" . ?∀) ("lambda" . ?λ) ("++" . ?†) ("<:" . ?◁) (":>" . ?▷)
    ("<-:" . ?⩤) (":->" . ?⩥) ("psubset" . ?⊂) ("^" . ?↷) ("dinter" . ?⋂)
-   ("dunion" . ?⋃) ("power" . ?𝓕) ("mu" . ?μ) ("iota" . ?ι)
+   ("dunion" . ?⋃) ("power" . ?𝓕) ("mu" . ?μ) ("iota" . ?ι) ("not" . ?¬)
+   ;; Workaround to avoid prettifying the 'not' in 'is not yet specified'
+   ,(vdm-mode-create-prettification-cons "is not" "is not")
    ,(vdm-mode-create-prettification-cons "nat1" "ℕ₁")
    ,(vdm-mode-create-prettification-cons "exists1" "∃!"))
   "VDM symbol prettifications.")
