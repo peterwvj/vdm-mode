@@ -81,7 +81,7 @@
   "All VDM-PP keywords.")
 
 
-;; The 'not' keyword is used for negation but also appear in the 'is
+;; The 'not' keyword is used for negation but also appears in the 'is
 ;; not yet specified' construct. Therefore it will not be prettyfied
 ;; using ("not" . ?¬).
 (defconst vdm-mode-prettify-symbols
