@@ -110,7 +110,7 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
    ("->" . ?⭢) ("inter" . ?∩) ("union" . ?∪) ("*" . ?×) ("exists" . ?∃)
    ("forall" . ?∀) ("lambda" . ?λ) ("++" . ?†) ("<:" . ?◁) (":>" . ?▷)
    ("<-:" . ?⩤) (":->" . ?⩥) ("psubset" . ?⊂) ("^" . ?↷) ("dinter" . ?⋂)
-   ("dunion" . ?⋃) ("power" . ?𝓕) ("mu" . ?μ)
+   ("dunion" . ?⋃) ("power" . ?𝓕) ("mu" . ?μ) ("iota" . ?ι)
    ,(vdm-mode-create-prettification-cons "nat1" "ℕ₁")
    ,(vdm-mode-create-prettification-cons "exists1" "∃!"))
   "VDM symbol prettifications.")
