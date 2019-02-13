@@ -80,19 +80,38 @@
             "subclass" "sync" "thread" "threadid" "variables"))
   "All VDM-PP keywords.")
 
+(defun vdm-mode-create-prettification-cons (from to)
+  "Create cons to make the command `prettify-symbols-mode' replace FROM with TO.
+
+Each character of TO is vertically aligned using the baseline,
+such that base-left of the character is aligned with base-right
+of the preceding character.  The resulting composition for a TO
+value of \"abc\" is (?a (Br . Bl) ?b (Br . Bl) ?c) where the
+composition rule (Br . Bl) between each pair of characters says
+that the base-right of the first character will be aligned with
+the base-left of the second character. Refer to
+`reference-point-alist' for more information.
+
+Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbols-with-strings-instead-of-characters/34882#34882"
+  (cons from (let ((composition nil))
+               (dolist (char (string-to-list to)
+                             (nreverse (cdr composition)))
+                 (push char composition)
+                 (push '(Br . Bl) composition)))))
 
 ;; The 'not' keyword is used for negation but also appears in the 'is
 ;; not yet specified' construct. Therefore it will not be prettyfied
 ;; using ("not" . ?¬).
 (defconst vdm-mode-prettify-symbols
-  '(("nat" . ?ℕ) ("int" . ?ℤ) ("rat" . ?ℚ) ("real" . ?ℝ) ("bool" . ?𝔹)
+  `(("nat" . ?ℕ) ("int" . ?ℤ) ("rat" . ?ℚ) ("real" . ?ℝ) ("bool" . ?𝔹)
    ("&" . ?⋅) ("and" . ?∧) ("or" . ?∨) ("=>" . ?⇒) ("<=>" . ?⇔)
    ("==" . ?≜) ("in set" . ?∈) ("not in set" . ?∉) ("<>" . ?≠) ("<=" . ?≤)
    (">=" . ?≥) ("|->" . ?↦) ("div" . ?÷) ("subset" . ?⊆) ("undefined" . ?⊢)
    ("->" . ?⭢) ("inter" . ?∩) ("union" . ?∪) ("*" . ?×) ("exists" . ?∃)
    ("forall" . ?∀) ("lambda" . ?λ) ("++" . ?†) ("<:" . ?◁) (":>" . ?▷)
    ("<-:" . ?⩤) (":->" . ?⩥) ("psubset" . ?⊂) ("^" . ?↷) ("dinter" . ?⋂)
-   ("dunion" . ?⋃) ("power" . ?𝓕) ("mu" . ?μ))
+   ("dunion" . ?⋃) ("power" . ?𝓕) ("mu" . ?μ)
+   ,(vdm-mode-create-prettification-cons "nat1" "ℕ₁"))
   "VDM symbol prettifications.")
 
 (defconst vdm-mode-vdmrt-keywords
