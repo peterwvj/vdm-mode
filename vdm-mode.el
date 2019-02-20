@@ -144,8 +144,22 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
 (defun vdm-mode-get-keyword-regex ()
   "Get regex for VDM keywords based on dialect."
   (concat
-   ;; Record, tuple and token constructors
+   ;; Record, token and tuple constructors. Examples: mk_Rec(1,2) and
+   ;; mk_(1,2) require only 'mk_' to be highlighted wheres
+   ;; mk_token("abc") requires 'mk_token' to be highlighted.
+   ;;
+   ;; The following regex currently highlights 'mk_token' in
+   ;; expressions like mk_tokenS which (ideally) it should
+   ;; not. However, this expression also produces a parse error using
+   ;; VDMJ.
    "mk_\\(?:token\\)?\\|"
+   ;; Is expressions. Examples: is_(a, nat) and is_Rec(r) require only
+   ;; 'is_' to be highlighted whereas is_nat(x) requires 'is_nat' to
+   ;; be highlighted.
+   ;;
+   ;; The following currently highlights 'is_bool' in expressions like
+   ;; is_boolS which (ideally) it should not.
+   "is_\\(?:bool\\|char\\|int\\|nat1\\|nat\\|rat\\|real\\|token\\)?\\|"
    (regexp-opt (vdm-mode-get-keywords) 'words)))
 
 (defun vdm-mode-create-project ()
