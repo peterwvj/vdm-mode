@@ -128,7 +128,10 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
   "Regex for VDM constants.")
 
 (defconst vdm-mode-type-regex
-  (regexp-opt '("bool" "char" "int" "nat" "nat1" "rat" "real" "token") 'words)
+  (concat
+   ;; Type parameters, e.g. @T
+   "@[^\s\n,]*\\|"
+   (regexp-opt '("bool" "char" "int" "nat" "nat1" "rat" "real" "token") 'words))
   "Regex for VDM types.")
 
 (defconst vdm-mode-negation-char-regex
