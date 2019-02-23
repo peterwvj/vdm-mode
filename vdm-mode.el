@@ -121,7 +121,7 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
 (defconst vdm-mode-constant-regex
   (concat
    ;; Quote literals, e.g. <Green>
-   "<[^\s]+?>\\|"
+   "<[^\s]+>\\|"
    ;; Character literals, e.g. 'x' or '\n'
    "'..?'\\|"
    (regexp-opt '("true" "false" "nil") 'words))
