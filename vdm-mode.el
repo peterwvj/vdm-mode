@@ -147,22 +147,29 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
 (defun vdm-mode-get-keyword-regex ()
   "Get regex for VDM keywords based on dialect."
   (concat
-   ;; Record, token and tuple constructors. Examples: mk_Rec(1,2) and
-   ;; mk_(1,2) require only 'mk_' to be highlighted wheres
-   ;; mk_token("abc") requires 'mk_token' to be highlighted.
-   ;;
-   ;; The following regex currently highlights 'mk_token' in
-   ;; expressions like mk_tokenS which (ideally) it should
-   ;; not. However, this expression also produces a parse error using
-   ;; VDMJ.
-   "mk_\\(?:token\\)?\\|"
-   ;; Is expressions. Examples: is_(a, nat) and is_Rec(r) require only
-   ;; 'is_' to be highlighted whereas is_nat(x) requires 'is_nat' to
-   ;; be highlighted.
-   ;;
-   ;; The following currently highlights 'is_bool' in expressions like
-   ;; is_boolS which (ideally) it should not.
-   "is_\\(?:bool\\|char\\|int\\|nat1\\|nat\\|rat\\|real\\|token\\)?\\|"
+   ;; Record, token and tuple constructors.
+   ;; Examples:
+   ;; mk_Rec(1,2) and mk_(1,2): Highlight only 'mk_'
+   ;; mk_token("abc"): Highlight 'mk_token'
+   ;; smk_token("abc"): Highlight nothing
+   ;; mk_tokenS("abc"): Highlight only 'mk_'
+   "\\<mk_token\\>\\|"
+   "\\<mk_\\|"
+   ;; "is" expressions.
+   ;; Examples:
+   ;; is_bool(2): Highlight 'is_bool'
+   ;; is_(a, nat) and is_Rec(r): Highlight only 'is_'
+   ;; sis_char('a): Highlight nothing
+   ;; is_charS('a'): Highlight only 'is_'
+   "\\<is_bool\\>\\|"
+   "\\<is_char\\>\\|"
+   "\\<is_int\\>\\|"
+   "\\<is_nat\\>\\|"
+   "\\<is_nat1\\>\\|"
+   "\\<is_rat\\>\\|"
+   "\\<is_real\\>\\|"
+   "\\<is_token\\>\\|"
+   "\\<is_\\|"
    (regexp-opt (vdm-mode-get-keywords) 'words)))
 
 (defun vdm-mode-create-project ()
