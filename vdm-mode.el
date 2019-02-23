@@ -138,7 +138,7 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
   "Regex for VDM types.")
 
 (defconst vdm-mode-negation-char-regex
-  "[`:;\\.\\(\\){}]"
+  "[`;\\.\\(\\){}\\~]"
   "Regex for VDM negation chars.")
 
 (defun vdm-mode-get-keywords ()
