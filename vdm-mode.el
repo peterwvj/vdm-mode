@@ -120,8 +120,11 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
 
 (defconst vdm-mode-constant-regex
   (concat
-   ;; Quote literals, e.g. <Green>
-   "<[^\s]+>\\|"
+   ;; Quote values, e.g. <Green>. Note that in addition to whitespace
+   ;; we do not allow '=' to appear between the brackets. This is
+   ;; mostly to avoid highlighting the '<=>' operator as a quote
+   ;; value.
+   "<[^\s=]+>\\|"
    ;; Character literals, e.g. 'x' or '\n'
    "'..?'\\|"
    (regexp-opt '("true" "false" "nil") 'words))
