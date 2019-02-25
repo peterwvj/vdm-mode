@@ -63,8 +63,8 @@
      ;; (flycheck-buffer-saved-p)
      ;; The VDM tool jar must exist
      (file-exists-p flycheck-vdm-tool-jar-path)
-     ;; The buffer we're checking must be associated with a file
-     (buffer-file-name))))
+     ;; The buffer we're checking must be associated with a VDM file
+     (vdm-mode-util-is-vdm))))
 
 (add-to-list 'flycheck-checkers 'vdm)
 
