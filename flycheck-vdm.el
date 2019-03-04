@@ -36,11 +36,17 @@
   :type 'string
   :safe #'stringp)
 
+(flycheck-def-option-var flycheck-vdm-extra-args nil vdm
+  "Extra arguments passed to the checker."
+  :type '(repeat string)
+  :safe #'flycheck-string-list-p)
+
 (flycheck-define-checker vdm
     "A syntax checker for VDM."
   :command ("java"
             (option "-jar" flycheck-vdm-tool-jar-path)
             (eval (vdm-mode-util-get-dialect-arg))
+            (eval flycheck-vdm-extra-args)
             source
             ;; Additional sources to type check
             (eval (vdm-mode-util-find-vdm-files t)))
