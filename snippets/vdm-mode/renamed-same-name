@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: renamed (use same name)
+# expand-env: ((yas-indent-line 'fixed))
+# key: res
+# condition: (vdm-mode-util-is-sl)
+# --
+${1:name} renamed $1
