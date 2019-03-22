@@ -203,8 +203,8 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
     ;; " is a string delimiter
     (modify-syntax-entry ?\" "\"" table)
 
-    ;; ' is a character character delimiter
-    (modify-syntax-entry ?' "/" table)
+    ;; Treat ' as a string delimiter
+    (modify-syntax-entry ?\' "\"" table)
 
     ;; / is punctuation and the first and last characters of a comment (comment sequence a)
     (modify-syntax-entry ?/ ". 14" table)
