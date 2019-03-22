@@ -125,8 +125,6 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
    ;; mostly to avoid highlighting the '<=>' operator as a quote
    ;; value.
    "<[^\s=]+>\\|"
-   ;; Character literals, e.g. 'x' or '\n'
-   "'..?'\\|"
    (regexp-opt '("true" "false" "nil") 'words))
   "Regex for VDM constants.")
 
