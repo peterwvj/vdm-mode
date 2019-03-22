@@ -59,7 +59,7 @@
     "pre" "psubset" "pure" "rd" "rem" "return"
     "reverse" "rng" "seq" "seq1" "set" "set1" "skip"
     "specified" "st" "subset" "then" "tixe" "tl" "to"
-    "traces" "trap" "types" "undefined" "union"
+    "traces" "trap" "types" "union"
     "values" "while" "with" "wr" "yet")
   "VDM keywords shared by VDM-SL, VDM-PP and VDM-RT.")
 
@@ -125,7 +125,7 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
    ;; mostly to avoid highlighting the '<=>' operator as a quote
    ;; value.
    "<[^\s=]+>\\|"
-   (regexp-opt '("true" "false" "nil") 'words))
+   (regexp-opt '("true" "false" "nil" "undefined") 'words))
   "Regex for VDM constants.")
 
 (defconst vdm-mode-type-regex
