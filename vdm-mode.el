@@ -123,8 +123,9 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
    ;; Quote values, e.g. <Green>. Note that in addition to whitespace
    ;; we do not allow '=' to appear between the brackets. This is
    ;; mostly to avoid highlighting the '<=>' operator as a quote
-   ;; value.
-   "<[^\s=]+>\\|"
+   ;; value. Also do not allow '<' or '>' do make sure that
+   ;; expressions such as fun[<A>]("<A>") get highlighted correctly.
+   "<[^\s=<>]+>\\|"
    (regexp-opt '("true" "false" "nil" "undefined") 'words))
   "Regex for VDM constants.")
 
