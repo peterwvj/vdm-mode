@@ -126,6 +126,8 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
    ;; value. Also do not allow '<' or '>' do make sure that
    ;; expressions such as fun[<A>]("<A>") get highlighted correctly.
    "<[^\s=<>]+>\\|"
+   ;; Character literals, e.g. 'x' or '\n'
+   "'..?'\\|"
    (regexp-opt '("true" "false" "nil" "undefined") 'words))
   "Regex for VDM constants.")
 
@@ -202,8 +204,7 @@ Inspired by https://emacs.stackexchange.com/questions/34808/using-prettify-symbo
     ;; " is a string delimiter
     (modify-syntax-entry ?\" "\"" table)
 
-    ;; Treat ' as a string delimiter
-    (modify-syntax-entry ?\' "\"" table)
+    ;; Note: we cannot treat ' as a string delimiter because this character may appear in identifiers
 
     ;; / is punctuation and the first and last characters of a comment (comment sequence a)
     (modify-syntax-entry ?/ ". 14" table)
