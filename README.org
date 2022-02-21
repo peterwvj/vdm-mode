@@ -4,8 +4,8 @@
 
 
 [[https://melpa.org/#/vdm-mode][file:https://melpa.org/packages/vdm-mode-badge.svg]]
-[[http://melpa-stable.milkbox.net/#/vdm-mode][file:http://melpa-stable.milkbox.net/packages/vdm-mode-badge.svg]]
-[[http://www.gnu.org/licenses/gpl-3.0.html][http://img.shields.io/:license-gpl3-blue.svg?style=flat-square]]
+[[http://melpa-stable.milkbox.net/#/vdm-mode][file:https://stable.melpa.org/packages/vdm-mode-badge.svg]]
+[[http://www.gnu.org/licenses/gpl-3.0.html][https://img.shields.io/:license-gpl3-blue.svg?style=flat-square]]
 
 
 Emacs packages for writing and analysing VDM specifications using
